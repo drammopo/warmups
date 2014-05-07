@@ -1,6 +1,6 @@
 require 'rspec'
 require 'rspec/autorun'
-require 'dogs'
+require_relative '../dogs'
 
 describe Dogs do
   let(:dogs) { Dogs.new }
@@ -17,37 +17,45 @@ describe Dogs do
 
   describe "#huge_dog" do
     it "returns the huge dog" do
+      pending
       expect(dogs.huge_dog).to include(name: 'Tank')
     end
   end
 
   describe "#large_dogs_names" do
+
     it "returns all of the big dogs" do
+      pending
       expect(dogs.large_dog_names).to match_array(["Fido", "Bruiser", "Beast"])
     end
   end
 
 
   describe "#joes_large_dogs" do
+
     it "returns only joes large dogs" do
+      pending
       expect(dogs.joes_large_dogs).to match_array(["Fido", "Bruiser"])
     end
   end
 
   describe "#sizes" do
     it "returns all dog sizes" do
+      pending
       expect(dogs.sizes).to match_array([:small, :medium, :large, :huge])
     end
   end
 
   describe "#owners" do
     it "returns all of the owners" do
+      pending
       expect(dogs.owners).to match_array(['Joe Smith', 'Sarah Smith', 'Andrew Beter'])
     end
   end
 
   describe "#average_owners" do
     it "returns all average owners" do
+      pending
       expect(dogs.average_owners).to match_array(['Sarah Smith', 'Andrew Beter'])
     end
   end
