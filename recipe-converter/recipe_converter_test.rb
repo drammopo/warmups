@@ -11,8 +11,7 @@ class RecipeConverterTest < MiniTest::Test
   end
 
   def test_initialized_with_one_ingredient
-    ingredients = [{:salt => 5}]
-    recipe_converter = RecipeConverter.new(ingredients)
+    recipe_converter = RecipeConverter.new([{:salt => 5}])
     assert_equal  [{:salt => 5}], recipe_converter.ingredients
   end
 
@@ -28,15 +27,14 @@ class RecipeConverterTest < MiniTest::Test
   end
 
   def test_converting_to_tablespoon_with_one_ingredient
-    ingredients = [{:salt => 15}]
-    recipe_converter = RecipeConverter.new(ingredients)
+    recipe_converter = RecipeConverter.new([{:salt => 15}])
     assert_equal  [{:salt => 1}], recipe_converter.to_tablespoon
   end
 
   def test_converting_to_tablespoon_with_two_ingredients
     ingredients = [{"salt" => 15}, {"olive oil" => 30}]
     recipe_converter = RecipeConverter.new(ingredients)
-    assert_equal [{"salt" => 1}, {"olive oil" => 22}], recipe_converter.to_tablespoon
+    assert_equal [{"salt" => 1}, {"olive oil" => 2}], recipe_converter.to_tablespoon
   end
 
   def test_converting_to_cups_with_no_ingredients
@@ -45,14 +43,13 @@ class RecipeConverterTest < MiniTest::Test
   end
 
   def test_converting_to_cups_with_one_ingredient
-    ingredients = [{:salt => 15}]
-    recipe_converter = RecipeConverter.new(ingredients)
-    assert_equal  [{:salt => 1}], recipe_converter.to_cups
+    recipe_converter = RecipeConverter.new([{:salt => 15}])
+    assert_equal  [{:salt => 0.0625}], recipe_converter.to_cups
   end
 
   def test_converting_to_cups_with_two_ingredients
     ingredients = [{"salt" => 15}, {"olive oil" => 30}]
     recipe_converter = RecipeConverter.new(ingredients)
-    assert_equal [{"salt" => 1}, {"olive oil" => 2}], recipe_converter.to_cups
+    assert_equal [{"salt" => 0.0625}, {"olive oil" => 0.125}], recipe_converter.to_cups
   end
 end

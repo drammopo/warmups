@@ -1,6 +1,9 @@
 class RecipeConverter
   attr_reader :ingredients
 
+  GRAMS_TO_A_TABLESPOON = 15
+  TABLESPOONS_TO_A_CUP = 16
+
   def initialize(ingredients)
     @ingredients = ingredients
   end
@@ -9,7 +12,7 @@ class RecipeConverter
     result = []
     ingredients.each do |ingredient|
       ingredient.each do |name,grams|
-        result << ingredient[name] = grams / 15
+        result << ingredient[name] = grams / GRAMS_TO_A_TABLESPOON
       end
     end
   end
@@ -18,7 +21,7 @@ class RecipeConverter
     result = []
     ingredients.each do |ingredient|
       ingredient.each do |name,grams|
-        result << ingredient[name] = ((grams / 15) / 16)
+        result << ingredient[name] = ((grams / GRAMS_TO_A_TABLESPOON.to_f) / TABLESPOONS_TO_A_CUP.to_f)
       end
     end
   end
