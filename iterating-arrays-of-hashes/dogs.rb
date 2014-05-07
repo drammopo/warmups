@@ -27,4 +27,50 @@ class Dogs
       {name: "Trixie",   size: :small,  owner: andrew}
     ]
   end
+
+  def small_dogs
+    @dogs.select { |dog| dog[:size] == :small}
+  end
+
+  def huge_dog
+    @dogs.detect { |dog| dog[:size] == :huge}
+  end
+
+  def large_dog_names
+    result = []
+    @dogs.select do |dog|
+      result << dog[:name] if dog[:size] == :large
+   end
+   result
+  end
+
+  def joes_large_dogs
+    result = []
+    @dogs.each do |dog|
+      result << dog[:name] if dog[:size] == :large && dog[:owner][:name][:first] == "Joe"
+   end
+   result
+  end
+
+  def sizes
+    result = []
+    @dogs.each { |dog| result << dog[:size] }
+    result.uniq
+  end
+
+  def owners
+    result = []
+    @dogs.each do |dog|
+      result << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
+    end
+    result.uniq
+  end
+
+  def average_owners
+    result = []
+    @dogs.each do |dog|
+      result << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" if dog[:owner][:owner_quality] == AVERAGE
+    end
+    result.uniq
+  end
 end
