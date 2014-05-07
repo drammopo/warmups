@@ -37,40 +37,38 @@ class Dogs
   end
 
   def large_dog_names
-    result = []
-    @dogs.select do |dog|
-      result << dog[:name] if dog[:size] == :large
-   end
-   result
+    large_dogs = []
+    @dogs.map { |dog| large_dogs << dog[:name] if dog[:size] == :large }
+    large_dogs
   end
 
   def joes_large_dogs
-    result = []
-    @dogs.each do |dog|
-      result << dog[:name] if dog[:size] == :large && dog[:owner][:name][:first] == "Joe"
-   end
-   result
+    joes_large_dogs = []
+    @dogs.map do |dog|
+      joes_large_dogs << dog[:name] if dog[:size] == :large && dog[:owner][:name][:first] == "Joe"
+    end
+     joes_large_dogs
   end
 
   def sizes
-    result = []
-    @dogs.each { |dog| result << dog[:size] }
-    result.uniq
+    sizes = @dogs.map { |dog| dog[:size] }
+    sizes.uniq
   end
 
   def owners
-    result = []
-    @dogs.each do |dog|
-      result << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
-    end
-    result.uniq
+    owners = []
+    @dogs.map { |dog| owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" }
+    owners.uniq
   end
 
   def average_owners
-    result = []
+    average_quality_owners = []
     @dogs.each do |dog|
-      result << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" if dog[:owner][:owner_quality] == AVERAGE
+      quality = dog[:owner][:owner_quality]
+      if quality < 11 && quality > 5
+        average_quality_owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
+      end
     end
-    result.uniq
+    average_quality_owners.uniq
   end
 end
