@@ -1,5 +1,6 @@
 require 'rspec'
 require 'rspec/autorun'
+require_relative 'dog'
 
 describe 'Dog Hash' do
   it 'returns the values of the first_name and color keys' do
