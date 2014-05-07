@@ -33,7 +33,7 @@ class Dogs
   end
 
   def huge_dog
-    @dogs.detect { |dog| dog[:size] == :huge}
+    @dogs.find { |dog| dog[:size] == :huge}
   end
 
   def large_dog_names
