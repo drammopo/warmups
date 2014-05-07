@@ -63,7 +63,7 @@ class Dogs
 
   def average_owners
     average_quality_owners = []
-    @dogs.each do |dog|
+    @dogs.map do |dog|
       quality = dog[:owner][:owner_quality]
       if quality < 11 && quality > 5
         average_quality_owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
