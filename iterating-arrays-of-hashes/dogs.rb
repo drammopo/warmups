@@ -38,13 +38,13 @@ class Dogs
 
   def large_dog_names
     large_dogs = []
-    @dogs.map { |dog| large_dogs << dog[:name] if dog[:size] == :large }
+    @dogs.each { |dog| large_dogs << dog[:name] if dog[:size] == :large }
     large_dogs
   end
 
   def joes_large_dogs
     joes_large_dogs = []
-    @dogs.map do |dog|
+    @dogs.each do |dog|
       joes_large_dogs << dog[:name] if dog[:size] == :large && dog[:owner][:name][:first] == "Joe"
     end
      joes_large_dogs
@@ -57,13 +57,13 @@ class Dogs
 
   def owners
     owners = []
-    @dogs.map { |dog| owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" }
+    @dogs.each { |dog| owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}" }
     owners.uniq
   end
 
   def average_owners
     average_quality_owners = []
-    @dogs.map do |dog|
+    @dogs.each do |dog|
       quality = dog[:owner][:owner_quality]
       if quality < 11 && quality > 5
         average_quality_owners << "#{dog[:owner][:name][:first]} #{dog[:owner][:name][:last]}"
