@@ -43,4 +43,4 @@ NOTE: if you get a script that runs forever, use CTL+C to stop it.
 Extra credit
 ===
 
-Mak the computer randomly specify the voice to be used.
+Make the computer randomly specify the voice to be used.
