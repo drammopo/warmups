@@ -7,8 +7,9 @@ Prep
 
 First, get familiar with the “say” command.  Please use headphones if you have them :)  From the terminal type:
 
-	say "Hello, I can talk!"
-say -v "Pipe Orga" "Hello, I am talking!"
+say "Hello, I can talk\!"
+say -v "Pipe Organ" "Hello, I am talking\!"
+say "My name is Dr. Smith and I live on Smith Dr."
 
 Next, get familiar with Ruby’s system command, which runs the command you give it as if it were on the command line.  From IRB type:
 
@@ -17,11 +18,11 @@ system("pwd")
 
 Next, get familiar with infinite loops and “exit”.  Add the following to a ruby file and run it:
 
-	i = 0
-	while true
-          	exit if i == 100
-puts i
-i += 1
+i = 0
+while true
+  exit if i == 100
+  puts i
+  i += 1
 end
 
 Making it work
