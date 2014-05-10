@@ -39,3 +39,8 @@ Once you’ve got that, take it to the next level by:
 Allowing the script to take a time like “ruby my_clock.rb 2 minutes” (HINT: use ARGV to find “2” and “minutes”)
 
 NOTE: if you get a script that runs forever, use CTL+C to stop it.
+
+Extra credit
+===
+
+Mak the computer randomly specify the voice to be used.
